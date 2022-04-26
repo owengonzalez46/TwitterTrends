@@ -1,0 +1,4 @@
+flask
+psycopg2
+pytz
+flask-cors
