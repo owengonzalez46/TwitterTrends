@@ -12,9 +12,3 @@ def openOutputFile():
         openIdentifier = 'w'
     outputFile = open(filePath, openIdentifier)
     return outputFile
-
-
-def openUUIDFile():
-    current_time = gettingCurrentTime.getCurrentTimeFileFormat()
-    filePath = 'logging/uuidFolder/output_{}.json'.format(current_time)
-    return open(filePath, 'w')

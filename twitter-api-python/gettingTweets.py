@@ -11,7 +11,7 @@ def getTweetsPerState(stateName, trendName, outputFile, count):
             config = twint.Config()
             config.Search = trendName
             config.Popular_tweets = True
-            #config.Near = stateName
+            config.Near = stateName
             config.Limit = 100
             config.Store_json = True
             config.Hide_output = True
