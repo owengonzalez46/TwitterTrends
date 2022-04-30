@@ -39,6 +39,17 @@ def getCurrentTimeHumanReadable():
     return jsonify(timeDict)
 
 
+def timeModified(dateTimeString):
+    currentTimeString = getCurrentTime()
+    currentTime = datetime.datetime.strptime(currentTimeString, '%Y-%m-%d %H:%M:%S.%f')
+    dateTimeStringUpdated = dateTimeString + ':00.000000'
+    timePassedIn = datetime.datetime.strptime(dateTimeStringUpdated, '%Y-%m-%d %H:%M:%S.%f')
+    if currentTime < timePassedIn:
+        return currentTimeString
+    else:
+        return dateTimeString
+
+
 def getModifiedTime(time):
     temp = time.split(':')
     hour = temp[0]

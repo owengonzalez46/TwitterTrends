@@ -68,7 +68,8 @@ def getTopTrends(date, time, state):
     trendsDict = {}
     stateTrends = []
     dateTimeStamp = date + ' ' + time
-    sql = """SELECT trendname FROM trends WHERE datestamp='{}' AND state='{}' ORDER BY trendnumber;""".format(dateTimeStamp, state)
+    dateTimeStampChecked = timeManagement.timeModified(dateTimeStamp)
+    sql = """SELECT trendname FROM trends WHERE datestamp='{}' AND state='{}' ORDER BY trendnumber;""".format(dateTimeStampChecked, state)
     databaseCurser.execute(sql)
     databaseResults = databaseCurser.fetchall()
     for trend in databaseResults:
@@ -88,7 +89,8 @@ def getTopTweets(date, time, state, trendName):
     tweets = []
     tweetLinks = []
     dateTimeStamp = date + ' ' + time
-    sql = """SELECT username, tweet, tweetlink FROM tweets WHERE datestamp='{}' AND state='{}' AND trendname='{}' ORDER BY tweetnumber LIMIT 100;""".format(dateTimeStamp, state, trendName)
+    dateTimeStampChecked = timeManagement.timeModified(dateTimeStamp)
+    sql = """SELECT username, tweet, tweetlink FROM tweets WHERE datestamp='{}' AND state='{}' AND trendname='{}' ORDER BY tweetnumber LIMIT 100;""".format(dateTimeStampChecked, state, trendName)
     databaseCurser.execute(sql)
     databaseResults = databaseCurser.fetchall()
     for tweet in databaseResults:
