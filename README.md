@@ -1,6 +1,6 @@
 <p align="center">
-  <a href="https://twittertrends.app">
-    <img src="https://twittertrends.app/logo.png" height="128">
+  <a href="https://twittertrends.owengonzalez.com">
+    <img src="https://twittertrends.owengonzalez.com/logo.png" height="128">
     <h1 align="center">TwitterTrends</h1>
   </a>
 </p>
